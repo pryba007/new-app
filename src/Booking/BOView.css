@@ -1,0 +1,54 @@
+.sViews {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .sViews ul {
+    list-style: none;
+    padding: auto;
+    
+  }
+  
+  .sViews li {
+    margin-bottom: 8px;
+    margin-left: 5px;
+  }
+  
+  .linkpa {
+    margin-bottom: 16px;
+  }
+  
+  .AddLink,
+  .editLink {
+    text-decoration: none;
+    color: white;
+    padding: 8px 16px;
+  }
+  
+  .deletepe {
+    margin-top: 8px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  
+  .deletebtn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .deletebtn:hover {
+    background-color: #c82333;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Add more styling as needed */
+  

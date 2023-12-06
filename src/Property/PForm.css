@@ -1,0 +1,63 @@
+/* PForm.css */
+
+.pform {
+    max-width: 800px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .form-group {
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  
+  .col3 {
+    width: calc(33.33% - 10px);
+  }
+  
+  .pform h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+ .pform p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-outline-success {
+    color: #28a745;
+    border: 1px solid #28a745;
+  }
+  
+  .btn-outline-danger {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+  }
+  .text-center{
+    text-align: center;
+  }
+  /* Add more styling as needed */
+  

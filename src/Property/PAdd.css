@@ -1,7 +1,7 @@
 /* Add.css */
 
 /* Style for the container */
-.Badd {
+.Padd {
     max-width: 800px;
     margin: auto;
     padding: 20px;
@@ -9,13 +9,9 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  .Badd h1 {
-    text-align: center;
-    color: black;
-  }
   
   /* Style for the input fields */
-  .Badd input {
+  .Padd input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;

@@ -55,7 +55,7 @@ function BEdit()
         <input type="text" id = "Buyeraddress"placeholder="Address" ref= {inputaddress} ></input>
         <input type="text" id = "Buyerpostcode"placeholder="Postcode" ref= {inputpostcode} ></input>
         <input type="text" id = "Buyerphone"placeholder="Phone" ref = {inputphone}></input>
-        <input type="button" value="Submit" onClick={()=>submitBuyer()}></input>
+        <input type="button" className='Submitbutton' value="Submit" onClick={()=>submitBuyer()}></input>
     </div>
     );
 }

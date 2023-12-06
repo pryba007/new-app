@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
+import './Edit.css';
 let {useParams,useNavigate} = require('react-router-dom');
 
 function Edit()
@@ -48,14 +49,14 @@ function Edit()
         }
         useEffect(()=>getSeller(), []);
     return(
-        <div>
+        <div className='sellerinput'>
         <h1>Edit Seller</h1>
-        <input type="text" id = "sellerfname"placeholder="First Name" ref={inputfname}></input>
-        <input type="text" id = "sellersname"placeholder="Last Name" ref= {inputsname}></input>
-        <input type="text" id = "selleraddress"placeholder="Address" ref= {inputaddress} ></input>
-        <input type="text" id = "sellerpostcode"placeholder="Postcode" ref= {inputpostcode} ></input>
-        <input type="text" id = "sellerphone"placeholder="Phone" ref = {inputphone}></input>
-        <input type="button" value="Submit" onClick={()=>submitSeller()}></input>
+        <input type="text" className='selleri' id = "sellerfname"placeholder="First Name" ref={inputfname}></input>
+        <input type="text" className='selleri' id = "sellersname"placeholder="Last Name" ref= {inputsname}></input>
+        <input type="text" className='selleri' id = "selleraddress"placeholder="Address" ref= {inputaddress} ></input>
+        <input type="text"  className='selleri' id = "sellerpostcode"placeholder="Postcode" ref= {inputpostcode} ></input>
+        <input type="text" className='selleri' id = "sellerphone"placeholder="Phone" ref = {inputphone}></input>
+        <input type="button" className='Submitbutton' value="Submit" onClick={()=>submitSeller()}></input>
     </div>
     );
 }

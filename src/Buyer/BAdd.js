@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import './BAdd.css';
+let {useParams,useNavigate} = require('react-router-dom');
 function BAdd()
 {
+    let navigate = useNavigate();
     let [addBuyer, setBuyer] = useState([]);
     function submitBuyer()
     {
@@ -21,18 +23,21 @@ function BAdd()
         })
         .then((response)=>response.json())
         .then((data)=>{
+            navigate(`/BView`);
             setBuyer(data);
+            
         });
 
     }
     return(
-        <div>
+        <div className='Badd'>
+            <h1>Add Buyer</h1>
             <input type="text" id = "Buyerfname"placeholder="First Name" ></input>
             <input type="text" id = "Buyersname"placeholder="Last Name" ></input>
             <input type="text" id = "Buyeraddress"placeholder="Address" ></input>
             <input type="text" id = "Buyerpostcode"placeholder="Postcode" ></input>
             <input type="text" id = "Buyerphone"placeholder="Phone" ></input>
-            <input className = "Submitbutton"type="button" value="Submit" onClick={submitBuyer}></input>
+            <input className = "Submitbutton"type="button" value="Submit" onClick={()=>submitBuyer}></input>
         </div>
     )
 }

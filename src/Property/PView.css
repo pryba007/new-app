@@ -1,14 +1,16 @@
-.sViews {
+/* PView.css */
+
+.View {
   max-width: 800px;
   margin: auto;
 }
 
-.sViews ul {
+ul {
   list-style: none;
   padding: 0;
 }
 
-.sViews li {
+li {
   margin-bottom: 8px;
 }
 
@@ -19,29 +21,26 @@
 .AddLink,
 .editLink {
   text-decoration: none;
-  color: #007bff;
-  padding: 8px 16px;
-}
-
-.deletepe {
-  margin-top: 8px;
+  color: white;
+  
 }
 
 .deletebtn {
   background-color: #dc3545;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .deletebtn:hover {
   background-color: #c82333;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
+.linkpe {
+  margin-top: 8px;
 }
 
 /* Add more styling as needed */
