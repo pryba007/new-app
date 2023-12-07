@@ -1,0 +1,15 @@
+export const imageList = [
+    {url: require(`./SellerImages/1.jpg`), id: 1, name: "1.jpg"},
+    {url: require(`./SellerImages/2.jpg`), id: 2, name: "2.jpg"},
+    {url: require(`./SellerImages/3.jpg`), id: 3, name: "3.jpg"},
+    {url: require(`./SellerImages/4.jpg`), id: 4, name: "4.jpg"},
+    {url: require(`./SellerImages/5.jpg`), id: 5, name: "5.jpg"},
+    {url: require(`./SellerImages/6.jpg`), id: 6, name: "6.jpg"},
+    {url: require(`./SellerImages/7.jpg`), id: 7, name: "7.jpg"},
+    {url: require(`./SellerImages/8.jpg`), id: 8, name: "8.jpg"},
+    {url: require(`./SellerImages/9.jpg`), id: 9, name: "9.jpg"},
+    {url: require(`./SellerImages/10.jpg`), id: 10, name: "10.jpg"},
+    {url: require(`./SellerImages/11.jpg`), id: 11, name: "11.jpg"},
+    {url: require(`./SellerImages/12.jpg`), id: 12, name: "12.jpg"},
+    {url: require(`./SellerImages/13.jpg`), id: 13, name: "13.jpg"},
+];

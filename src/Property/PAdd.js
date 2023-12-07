@@ -6,7 +6,7 @@ function PAdd() {
   let [addProperty, setProperty] = useState([]);
   let [sellerid, setsellerid] = useState([]);
   function idchecker(){
-    console.log(sellerid);
+    getsellerid();
     let id = document.getElementById('SellerID').value;
     let check = false;
     for(let i = 0; i < sellerid.length; i++){
@@ -28,7 +28,6 @@ function getsellerid(){
   fetch("http://localhost:3000/seller")
     .then((response) => response.json())
     .then((data) => {
-      navigate(`/PView`)
       setsellerid(data);
     });
 }
@@ -67,6 +66,9 @@ useEffect(() => {
       document.getElementById('Propertyprice').value = choice;
       pricecheker();
     }
+    else{
+      return price;
+    }
   }
   function submitProperty() {
     let Property = {
@@ -77,7 +79,7 @@ useEffect(() => {
       garden: gardenchecker(),
       price: pricecheker(),
       status: document.getElementById('PropertyStatus').value,
-      id: getsellerid()
+      sellerId: idchecker()
     }
     fetch('http://localhost:3000/property', {
       method: 'POST',
@@ -89,6 +91,7 @@ useEffect(() => {
       .then((response) => response.json())
       .then((data) => {
         setProperty(data);
+        navigate('/PView');
       });
 
   }

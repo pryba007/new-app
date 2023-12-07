@@ -1,0 +1,15 @@
+export const imageList = [
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 1, name: "1.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 2, name: "2.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 3, name: "3.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 4, name: "4.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 5, name: "5.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 6, name: "6.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 7, name: "7.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 8, name: "8.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 9, name: "9.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 10, name: "10.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 11, name: "11.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 12, name: "12.jpg"},
+    {url: `https://images.pexels.com/photos/927451/pexels-photo-927451.jpeg?auto=compress&cs=tinysrgb&w=600`, id: 13, name: "13.jpg"},
+];

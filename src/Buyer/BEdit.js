@@ -12,7 +12,6 @@ function BEdit()
     let {id} = useParams();
     function submitBuyer()
     {
-        // console.log("the value is" + addBuyer.firstName)
         let Buyer = {
             id:id,
             firstName: inputfname.current.value,
@@ -48,13 +47,13 @@ function BEdit()
         }
         useEffect(()=>getBuyer(), []);
     return(
-        <div>
+        <div className='sellerinput'>
         <h1>Edit Buyer</h1>
-        <input type="text" id = "Buyerfname"placeholder="First Name" ref={inputfname}></input>
-        <input type="text" id = "Buyersname"placeholder="Last Name" ref= {inputsname}></input>
-        <input type="text" id = "Buyeraddress"placeholder="Address" ref= {inputaddress} ></input>
-        <input type="text" id = "Buyerpostcode"placeholder="Postcode" ref= {inputpostcode} ></input>
-        <input type="text" id = "Buyerphone"placeholder="Phone" ref = {inputphone}></input>
+        <input type="text" className='selleri' id = "Buyerfname"placeholder="First Name" ref={inputfname}></input>
+        <input type="text" className='selleri' id = "Buyersname"placeholder="Last Name" ref= {inputsname}></input>
+        <input type="text" className='selleri' id = "Buyeraddress"placeholder="Address" ref= {inputaddress} ></input>
+        <input type="text" className='selleri' id = "Buyerpostcode"placeholder="Postcode" ref= {inputpostcode} ></input>
+        <input type="text" className='selleri' id = "Buyerphone"placeholder="Phone" ref = {inputphone}></input>
         <input type="button" className='Submitbutton' value="Submit" onClick={()=>submitBuyer()}></input>
     </div>
     );

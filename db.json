@@ -1,14 +1,6 @@
 {
   "seller": [
     {
-      "id": 1,
-      "firstName": "John",
-      "surname": "Doe",
-      "address": "1 High Street, Cardiff",
-      "postcode": "CF1 1AA",
-      "phone": "01234567890"
-    },
-    {
       "id": 2,
       "firstName": "Anna",
       "surname": "Smith",
@@ -231,6 +223,14 @@
       "postcode": "CF1 1AA",
       "phone": "1",
       "id": 30
+    },
+    {
+      "firstName": "sam",
+      "surname": "doe",
+      "address": "123 ken street",
+      "postcode": "CF1 1AA",
+      "phone": "07865471144",
+      "id": 31
     }
   ],
   "property": [
@@ -239,10 +239,10 @@
       "address": "34 OK Place, OK Town",
       "postcode": "OK1 1OK",
       "price": "100000",
-      "status": "SOLD",
+      "status": "FOR SALE",
       "bedroom": "3",
       "bathroom": "1",
-      "garden": 0
+      "garden": 1
     },
     {
       "id": 2,
@@ -260,14 +260,11 @@
       "id": 3,
       "address": "8 Rose Street, Roseville",
       "postcode": "RV1 2RV",
-      "type": "APARTMENT",
-      "price": 120000,
-      "bedroom": 2,
-      "bathroom": 1,
-      "garden": 0,
-      "sellerId": 3,
-      "status": "SOLD",
-      "buyerId": 4
+      "price": "120000",
+      "status": "WITHDRAWN",
+      "bedroom": "2",
+      "bathroom": "1",
+      "garden": 0
     },
     {
       "id": 4,
@@ -285,14 +282,11 @@
       "id": 5,
       "address": "3 Oak Street, Oakton",
       "postcode": "OT1 1OT",
-      "type": "SEMI",
-      "price": 160000,
-      "bedroom": 3,
-      "bathroom": 1,
-      "garden": 1,
-      "sellerId": 5,
-      "status": "SOLD",
-      "buyerId": 5
+      "price": "160000",
+      "status": "WITHDRAWN",
+      "bedroom": "3",
+      "bathroom": "1",
+      "garden": 1
     },
     {
       "id": 6,
@@ -310,14 +304,11 @@
       "id": 7,
       "address": "7 Birch Street, Birchville",
       "postcode": "BV1 1BV",
-      "type": "SEMI",
-      "price": 170000,
-      "bedroom": 3,
-      "bathroom": 2,
-      "garden": 1,
-      "sellerId": 7,
+      "price": "170000",
       "status": "SOLD",
-      "buyerId": 6
+      "bedroom": "3",
+      "bathroom": "2",
+      "garden": 1
     },
     {
       "id": 8,
@@ -505,26 +496,34 @@
       "address": "9 Whisker Way, Oxford",
       "postcode": "OX1 1PA",
       "phone": "01234567814"
+    },
+    {
+      "firstName": "scott",
+      "surname": "Lee",
+      "address": "fdd",
+      "postcode": "fff",
+      "phone": "090000",
+      "id": 16
     }
   ],
   "booking": [
     {
+      "id": 2,
       "buyerId": 2,
-      "propertyId": 2,
-      "time": "2023-02-28T08:00:00.038Z",
-      "id": 2
+      "propertyId": 1,
+      "time": "2023-12-17"
     },
     {
+      "id": 3,
       "buyerId": 2,
       "propertyId": 3,
-      "time": "2023-03-01T10:30:00.045Z",
-      "id": 3
+      "time": "2023-12-29"
     },
     {
+      "id": 4,
       "buyerId": 3,
       "propertyId": 1,
-      "time": "2023-03-02T13:15:00.021Z",
-      "id": 4
+      "time": "2023-12-17"
     },
     {
       "buyerId": 4,
@@ -599,9 +598,9 @@
       "id": 16
     },
     {
-      "buyerid": "2",
-      "propertyid": "1",
-      "time": "2023-12-27T00:00:00.000Z",
+      "buyerId": 2,
+      "propertyId": 1,
+      "time": "2023-12-31T00:00:00.000Z",
       "id": 17
     }
   ]

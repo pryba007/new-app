@@ -51,11 +51,22 @@ function PEdit() {
             inputprice.current.value = data.price;
             inputbedrooms.current.value = data.bedroom;
             inputbathrooms.current.value = data.bathroom;
-            inputgarden.current.value = data.garden;
+            inputgarden.current.value = gardenbuilder(data.garden);
             });
     
         }
 
+        function gardenbuilder(g)
+        {
+            if(g == 1)
+            {
+                return "Yes";
+            }
+            else if(g == 0)
+            {
+                return "No";
+            }
+        }
 
         useEffect(()=>getProperty(), []);
         function setbuyerid()
@@ -64,11 +75,13 @@ function PEdit() {
             {
                 alert("This property has been sold, please attach a buyer to this property, if you made a mistake please type c to cancel")
                 let choice = prompt("Please enter the buyer ID")
-                let found = false;
-                if(choice == "c")
+                if(choice === "c")
                 {
                     navigate(`/PView`)
                 }
+                else
+                {
+                let found = false;
                 for(let i = 0; i < buyerid.length; i++)
                 {
                     if(choice == buyerid[i].id)
@@ -78,6 +91,7 @@ function PEdit() {
                 }
                 if(found == false)
                 {
+                    console.log(choice)
                     alert("Buyer ID not found")
                     setbuyerid();
                 }
@@ -86,6 +100,7 @@ function PEdit() {
                     alert("Buyer ID found")
                         submitProperty();
                 }
+            }
             }
             else
             {
@@ -130,11 +145,17 @@ function PEdit() {
     return (
         <div className='pedit'>
             <h1>Edit Property</h1>
+            <label for="PropertyAddress"><b>Property Address: </b></label>
             <input type="text" className='p1' id = "propertyaddress"placeholder="Address" ref= {inputaddress} ></input>
+            <label for="PropertyPostcode"><b>Property Postcode: </b></label>
             <input type="text" className='p1' id = "propertypostcode"placeholder="Postcode" ref= {inputpostcode} ></input>
+            <label for="PropertyPrice"><b>Property Price: </b></label>
             <input type="text" className='p1' id = "propertyprice"placeholder="Price" ref= {inputprice} ></input>
+            <label for="PropertyBedrooms"><b>Property Bedrooms: </b></label>
             <input type="text" className='p1' id = "propertybedrooms"placeholder="Bedrooms" ref= {inputbedrooms} ></input>
+            <label for="PropertyBathrooms"><b>Property Bathrooms: </b></label>
             <input type="text" className='p1' id = "propertybathrooms"placeholder="Bathrooms" ref= {inputbathrooms} ></input>
+            <label for="PropertyGarden"><b>Property Garden: </b></label>
             <input type="text" className='p1' id = "propertygarden"placeholder="Garden" ref= {inputgarden} ></input>
             <label for="Status"><b>Property Status: </b></label>
             <select id="PropertyStatus" ref={inputstatus}> 

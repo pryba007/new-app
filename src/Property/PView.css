@@ -1,46 +1,105 @@
-/* PView.css */
-
-.View {
+/* View.css */
+.pView {
   max-width: 800px;
   margin: auto;
 }
-
-ul {
-  list-style: none;
+.pView h1 {
+  text-align: center;
+  color: black;
+}
+.pView ul {
+  list-style-type: none;
   padding: 0;
 }
 
-li {
-  margin-bottom: 8px;
+.pView li {
+  margin-bottom: 10px;
 }
 
-.linkpa {
-  margin-bottom: 16px;
+/* Style for each seller item */
+.pView ul > ul {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
-.AddLink,
-.editLink {
-  text-decoration: none;
-  color: white;
-  
+.pView ul > ul > li {
+  font-size: 16px;
+  color: #333;
 }
 
-.deletebtn {
-  background-color: #dc3545;
-  width: 100%;
+/* Add some spacing between seller items */
+.pView ul > ul + ul {
+  margin-top: 20px;
+}
+
+.editLink1 {
+  margin-top: 30px;
   padding: 10px;
-  margin: 10px 0;
+  margin-bottom: 10px;
   box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  background-color: rgb(255, 145, 0);
+  border: 1px solid rgb(255, 145, 0);
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+
+}
+.AddLink {
+  padding: 10px;
+  margin-top: 30px;
+  box-sizing: border-box;
+  background-color: rgb(18, 99, 35);
+  border: 1px solid rgb(18, 99, 35);
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  width: 100px;
+  text-decoration: none;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+
+}
+.linkpve{
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  background-color: rgb(255, 145, 0);
+  border: 1px solid rgb(255, 145, 0);
+}
+.linkpa{
+  margin-top: 30px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 30px;
+  background-color: rgb(18, 99, 35);
+  border: 1px solid rgb(18, 99, 35);
+}
+.deletebtn{
+  background-color: rgb(171, 14, 14);
+    color: #fff;
+    cursor: pointer;
+    font-size: medium;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+.cardContainer {
+  display: flex;
+ padding-bottom: 8 px;
+
 }
 
-.deletebtn:hover {
-  background-color: #c82333;
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }
-
-.linkpe {
-  margin-top: 8px;
-}
-
-/* Add more styling as needed */

@@ -31,7 +31,7 @@ function PForm (props)
     let clearValues = () => {
         
         houseType.current.value = "ANY";
-        houseStatus.current.value = "ANY-W";
+        houseStatus.current.value = "ANY";
         housePrice.current.value = 0;
         houseBedrooms.current.value = 0;
         houseBathrooms.current.value = 0;
@@ -68,7 +68,7 @@ function PForm (props)
                 <div className="form-group">
                 <p htmlFor="formStatus"> <FaTruckLoading />Status</p>
                 <select  className="form-select" ref={houseStatus}>
-                <option value="ANY-W">ANY WITHOUT WITHDRAWN</option>
+                <option value="ANY">ANY</option>
                     <option value="SOLD">SOLD</option>
                     <option value="FOR SALE">FOR SALE</option>
                     <option value="WITHDRAWN">WITHDRAWN</option>

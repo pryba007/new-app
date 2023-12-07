@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./PView.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import PForm from "./PForm";
+import { imageList } from "./Images";
 function PView() {
   let [propertyList, setPropertyList] = useState([]);
   useEffect(() => {
@@ -52,29 +53,7 @@ function PView() {
   const searchHandler = (search) => {
     searchvalue = search;
     listbuilderwithdrawn(searchvalue);
-    listbuilderwithoutwithdrawn(searchvalue);
   };
-
-  function listbuilderwithoutwithdrawn(svalue) {
-    setPropertyList(
-      propertyList.filter((property) => {
-        if (svalue.type == "ANY" || svalue.type == property.type) {
-          if (Number(property.bedroom) >= Number(svalue.bedroom)) {
-            if (Number(property.bathroom) >= Number(svalue.bathroom)) {
-              if (Number(property.garden) >= Number(svalue.garden)) {
-                if (
-                  svalue.status == "ANY-W" ||
-                  svalue.status == property.status
-                ) {
-                  return property;
-                }
-              }
-            }
-          }
-        }
-      })
-    );
-  }
   function listbuilderwithdrawn(svalue) {
     setPropertyList(
       propertyList.filter((property) => {
@@ -83,7 +62,7 @@ function PView() {
             if (Number(property.bathroom) >= Number(svalue.bathroom)) {
               if (Number(property.garden) >= Number(svalue.garden)) {
                 if (
-                  svalue.status == "WITHDRAWN" ||
+                  svalue.status == "ANY" ||
                   svalue.status == property.status
                 ) {
                   return property;
@@ -96,7 +75,7 @@ function PView() {
     );
   }
   return (
-    <div className="View">
+    <div className="pView">
       <PForm
         searchHandler={searchHandler}
         generatePropertyList={generatePropertyList}
@@ -111,6 +90,15 @@ function PView() {
         {propertyList.map((property) => {
           return (
             <ul className="PropertyList">
+              <div className="cardContainer">
+                <img
+                  src={
+                    imageList[Math.floor(Math.random() * imageList.length)].url
+                  }
+                  alt={property.firstName}
+                  className="cardImg"
+                />
+              </div>
               <li>
                 <b>Address:</b> {property.address}
               </li>
@@ -132,7 +120,21 @@ function PView() {
                 {gardenconversion(property)}
               </li>
               <li>
-                <b>Status:</b> {property.status}
+                <b>Status:</b>{" "}
+                <span
+                  className={`${
+                    property.status === "FOR SALE"
+                      ? "bg-success"
+                      : property.status === "WITHDRAWN"
+                      ? "bg-primary"
+                      : property.status === "SOLD"
+                      ? "bg-danger"
+                      : ""
+                  } text-white py-1 px-2 rounded`}
+                >
+                  {" "}
+                  {property.status}{" "}
+                </span>
               </li>
               <input
                 className="deletebtn"
@@ -140,8 +142,8 @@ function PView() {
                 value="Delete"
                 onClick={() => DeleteFromList(property)}
               ></input>
-              <p className="linkpe">
-                <Link className="editLink" to={`/PEdit/${property.id}`}>
+              <p className="linkpve">
+                <Link className="editLink1" to={`/PEdit/${property.id}`}>
                   Edit
                 </Link>
               </p>

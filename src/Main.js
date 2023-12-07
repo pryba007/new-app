@@ -14,7 +14,7 @@ import BOView from "./Booking/BOView";
 import BOAdd from "./Booking/BOAdd";
 import { IconName } from "react-icons/bs";
 import { BsFillHousesFill } from "react-icons/bs";
-
+import Footer from "./Footer/Footer";
 import './Main.css';
 function Main(){
     return (
@@ -44,7 +44,10 @@ function Main(){
             <Route path="/BOView" element={<BOView/>}/>
             <Route path="/BOEdit/:id" element={<BOEdit/>}/>
         </Routes>
+        <Footer/>
         </BrowserRouter>
+
+
     );
 }
 export default Main;

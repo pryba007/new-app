@@ -13,7 +13,6 @@ function Edit()
     let {id} = useParams();
     function submitSeller()
     {
-        // console.log("the value is" + addseller.firstName)
         let seller = {
             id:id,
             firstName: inputfname.current.value,
