@@ -10,7 +10,7 @@ function BView() {
   }, []);
 
   function generateBuyerList() {
-    fetch("http://localhost:3000/buyer")
+    fetch("http://localhost:3000/GetBuyers")
       .then((response) => response.json())
       .then((data) => {
         setBuyerList(data);

@@ -9,7 +9,7 @@ function PView() {
     generatePropertyList();
   }, []);
   function generatePropertyList() {
-    fetch("http://localhost:3000/property")
+    fetch("http://localhost:3000/GetProperties")
       .then((response) => response.json())
       .then((data) => {
         setPropertyList(data);
@@ -19,7 +19,7 @@ function PView() {
     alert("Are you sure you want to delete this property?");
     let choice = prompt("Yes or No");
     if (choice === "yes") {
-      fetch(`http://localhost:3000/property/${props.id}`, {
+      fetch(`http://localhost:3000/DeleteProperty/${props.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -33,13 +33,7 @@ function PView() {
       alert("Invalid input");
     }
   }
-  function gardenconversion(props) {
-    if (props.garden === 1) {
-      return "Yes";
-    } else {
-      return "No";
-    }
-  }
+
   let searchvalue = useState({});
   // the function searchHandler is passed to the PForm component as a prop
   // the PForm component will call this function when the search button is clicked
@@ -54,6 +48,13 @@ function PView() {
     searchvalue = search;
     listbuilderwithdrawn(searchvalue);
   };
+  function gardendisplay(value) {
+    if (value == "true") {
+      return "Yes";
+    } else if (value == "false") {
+      return "No";
+    }
+  }
   function listbuilderwithdrawn(svalue) {
     setPropertyList(
       propertyList.filter((property) => {
@@ -110,14 +111,14 @@ function PView() {
                 <b>Price:</b> {property.price}
               </li>
               <li>
-                <b>Number of Bedrooms:</b> {property.bedroom}
+                <b>Number of Bedrooms:</b> {property.numbeR_OF_BEDROOMS}
               </li>
               <li>
-                <b>Number of Bathrooms:</b> {property.bathroom}
+                <b>Number of Bathrooms:</b> {property.numbeR_OF_BATHROOMS}
               </li>
               <li>
-                <b>Number of Gardens:</b>
-                {gardenconversion(property)}
+                <b>Number of Gardens:</b>{" "}
+                {gardendisplay(property.garden.toString())}
               </li>
               <li>
                 <b>Status:</b>{" "}
