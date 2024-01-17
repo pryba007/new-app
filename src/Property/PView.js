@@ -21,17 +21,15 @@ function PView() {
     if (choice === "yes") {
       fetch(`http://localhost:3000/DeleteProperty/${props.id}`, {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: props }),
-      }).then((response) => response.json());
-      generatePropertyList();
+      })
+        .then((res) => res.text()) // or res.json()
+        .then((res) => console.log(res));
     } else if (choice === "no") {
       alert("Property not deleted");
     } else {
       alert("Invalid input");
     }
+    generatePropertyList();
   }
 
   let searchvalue = useState({});
@@ -117,7 +115,7 @@ function PView() {
                 <b>Number of Bathrooms:</b> {property.numbeR_OF_BATHROOMS}
               </li>
               <li>
-                <b>Number of Gardens:</b>{" "}
+                <b>Gardens:</b>{" "}
                 {gardendisplay(property.garden.toString())}
               </li>
               <li>

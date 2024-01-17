@@ -9,6 +9,10 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+  .Padd h1 {
+    text-align: center;
+    color: black;
+  }
   
   /* Style for the input fields */
   .Padd input {
@@ -19,6 +23,15 @@
     border-radius: 5px;
     box-sizing: border-box;
   }
+.Padd select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  
+}
   
   /* Style for the submit button */
   .Submitbutton {

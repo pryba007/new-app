@@ -25,7 +25,7 @@ function PAdd() {
   }
 }
 function getsellerid(){
-  fetch("http://localhost:3000/seller")
+  fetch("http://localhost:3000/GetSellers")
     .then((response) => response.json())
     .then((data) => {
       setsellerid(data);
@@ -37,10 +37,10 @@ useEffect(() => {
   function gardenchecker(){
     let garden = document.getElementById('Propertygarden').value;
     if(garden.toLowerCase() == "yes"){
-      return 1;
+      return true;
     }
     else if(garden.toLowerCase()=="no"){
-      return 0;
+      return false;
     }
     else{
       alert("Invalid input");
@@ -73,15 +73,17 @@ useEffect(() => {
   function submitProperty() {
     let Property = {
       address: document.getElementById('Propertyaddress').value,
+      type: document.getElementById('PropertyType').value,
       postcode: document.getElementById('Propertypostcode').value,
-      bedroom: document.getElementById('Propertybedrooms').value,
-      bathroom: document.getElementById('Propertybathrooms').value,
+      numbeR_OF_BEDROOMS: document.getElementById('Propertybedrooms').value,
+      numbeR_OF_BATHROOMS: document.getElementById('Propertybathrooms').value,
       garden: gardenchecker(),
       price: pricecheker(),
-      status: document.getElementById('PropertyStatus').value,
-      sellerId: idchecker()
+      status: "FOR SALE",
+      selleR_ID: idchecker()
     }
-    fetch('http://localhost:3000/property', {
+    console.log(Property);
+    fetch('http://localhost:3000/CreateProperty', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -97,17 +99,31 @@ useEffect(() => {
   }
   return (
     <div className='Padd'>
+      <h1>Add Property</h1>
       <input type="text" id="Propertyaddress" placeholder="Address"></input>
       <input type="text" id="Propertypostcode" placeholder="Postcode"></input>
       <input type="number" id="Propertybedrooms" placeholder="Bedrooms"></input>
       <input type="number" id="Propertybathrooms" placeholder="Bathrooms"></input>
-      <input type="number" id="SellerID" placeholder="Seller ID"></input>
+
       <input type="text" id="Propertygarden" placeholder="Garden"></input>
       <input type="number" id="Propertyprice" placeholder="Price"></input>
-      <label for="Status"><b>Property Status: </b></label>
-      <select id="PropertyStatus"> 
-      <option value="FOR SALE">For Sale</option>
+      <label for="Type"><b>Property Type: </b></label>
+      <select id="PropertyType"> 
+      <option value="DETACHED">DETACHED</option>
+      <option value="SEMI">SEMI</option>
+      <option value="APARTMENT">APARTMENT</option>
       </select>
+      <br></br>
+      <label for="Type"><b>Seller Name: </b></label>
+      <select id = "SellerID">
+      {sellerid.map((seller) => {
+        return (
+          <option value={seller.id}>{seller.firsT_NAME}  {seller.surname}</option>
+        );
+      })}
+
+      </select >
+     
       <input className="Submitbutton" type="button" value="Submit" onClick={()=>submitProperty()}></input>
     </div>
   );

@@ -1,40 +1,46 @@
-/* PEdit.css */
+/* Add this CSS to your stylesheet */
 
 .pedit {
   max-width: 600px;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  border-radius: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .pedit h1 {
   text-align: center;
-  color: black;
 }
 
-.p1 {
+.pedit label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.pedit .p1,
+.pedit select {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 4px;
 }
 
-.Submitbutton {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
+.pedit .Submitbutton {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
+  display: block;
+  margin-top: 10px;
 }
 
-.Submitbutton:hover {
-  background-color: #0056b3;
+.pedit .Submitbutton:hover {
+  background-color: #45a049;
 }
+
+/* Optional: Add more styling as needed */
+
 
 /* Add more styling as needed */
