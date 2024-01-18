@@ -19,6 +19,7 @@ import BOAdd from "./Booking/BOAdd";
 import { Routes, Route,BrowserRouter } from 'react-router-dom';
 import Login from './Login';
 import Footer from './Footer/Footer';
+import Signup from './Signup';
 import { IconName } from "react-icons/bs";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -42,6 +43,7 @@ root.render(
         <Route path="/BOView" element={<BOView />} />
         <Route path="/BOEdit/:id" element={<BOEdit />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<Signup />} />
       </Routes>
       <Footer />
 
