@@ -9,7 +9,7 @@ function View() {
   }, []);
 
   function generateSellerList() {
-    fetch("http://localhost:3000/seller")
+    fetch("http://localhost:3000/GetSellers")
       .then((response) => response.json())
       .then((data) => {
         setSellerList(data);
@@ -20,7 +20,7 @@ function View() {
     alert("Are you sure you want to delete this seller?");
     let choice = prompt("Yes or No");
     if (choice === "yes") {
-      fetch(`http://localhost:3000/seller/${props.id}`, {
+      fetch(`http://localhost:3000/DeleteSeller/${props.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -64,11 +64,11 @@ function View() {
                 <img
                 src={imageList[Math.floor(Math.random()* imageList.length)].url}
                   alt={seller.firstName}
-                  className="cardImg"
+                  className="cardImgseller"
                 />
                </div>
               <li className="mx-3">
-                <b>First test Name:</b> {seller.firstName}
+                <b>First test Name:</b> {seller.firsT_NAME}
               </li>
               <li className="mx-3">
                 <b>Last Name:</b> {seller.surname}

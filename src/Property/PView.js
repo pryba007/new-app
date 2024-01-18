@@ -54,13 +54,23 @@ function PView() {
     }
   }
   function listbuilderwithdrawn(svalue) {
+    console.log(svalue);
+    
     setPropertyList(
       propertyList.filter((property) => {
         if (svalue.type == "ANY" || svalue.type == property.type) {
-          if (Number(property.bedroom) >= Number(svalue.bedroom)) {
-            if (Number(property.bathroom) >= Number(svalue.bathroom)) {
-              if (Number(property.garden) >= Number(svalue.garden)) {
+          if (svalue.price == "ANY" || Number(property.price) <= Number(svalue.price)) {
+          if (Number(property.numbeR_OF_BEDROOMS) >= Number(svalue.numbeR_OF_BEDROOMS)) {
+            
+            if (Number(property.numbeR_OF_BATHROOMS) >= Number(svalue.numbeR_OF_BATHROOMS)) {
+              console.log("the garden property is"+ property.garden + "the searched garden is " +svalue.garden)
+              
+              let gardenval = Boolean(svalue.garden)
+              if (property.garden == gardenval) {
+              
+                console.log("reached")
                 if (
+                  
                   svalue.status == "ANY" ||
                   svalue.status == property.status
                 ) {
@@ -70,6 +80,7 @@ function PView() {
             }
           }
         }
+      }
       })
     );
   }
@@ -95,7 +106,7 @@ function PView() {
                     imageList[Math.floor(Math.random() * imageList.length)].url
                   }
                   alt={property.firstName}
-                  className="cardImg"
+                  className="cardImgprop"
                 />
               </div>
               <li>

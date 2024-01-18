@@ -10,13 +10,13 @@ function Add()
     function submitSeller()
     {
         let seller = {
-            firstName: document.getElementById('sellerfname').value,
+            firsT_NAME: document.getElementById('sellerfname').value,
             surname: document.getElementById('sellersname').value,
             address: document.getElementById('selleraddress').value,
             postcode: document.getElementById('sellerpostcode').value,
             phone: document.getElementById('sellerphone').value
         }
-        fetch('http://localhost:3000/seller', {
+        fetch('http://localhost:3000/CreateSeller', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

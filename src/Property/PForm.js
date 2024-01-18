@@ -21,8 +21,8 @@ function PForm (props)
                     type: houseType.current.value,
                     status: houseStatus.current.value,
                     price: housePrice.current.value,
-                    bedroom: houseBedrooms.current.value,
-                    bathroom: houseBathrooms.current.value,
+                    numbeR_OF_BEDROOMS: houseBedrooms.current.value,
+                    numbeR_OF_BATHROOMS: houseBathrooms.current.value,
                     garden: houseGarden.current.value
                 }
             );
@@ -33,9 +33,9 @@ function PForm (props)
         houseType.current.value = "ANY";
         houseStatus.current.value = "ANY";
         housePrice.current.value = 0;
-        houseBedrooms.current.value = 0;
-        houseBathrooms.current.value = 0;
-        houseGarden.current.value = 0;
+        houseBedrooms.current.value = 1;
+        houseBathrooms.current.value = 1;
+        houseGarden.current.value = false;
         props.generatePropertyList();
         
 
@@ -77,7 +77,7 @@ function PForm (props)
                 <div className="form-group">
                 <p htmlFor="numberOfBedrooms"> <FaBed/>Bedrooms</p>
                 <select  className="form-select" ref={houseBedrooms}>
-                    <option value="0">Any</option>
+                    <option value="1">Any</option>
                     <option value="1">Minimum 1</option>
                     <option value="2">Minimum 2</option>
                     <option value="3">Minimum 3</option>
@@ -88,7 +88,7 @@ function PForm (props)
             <div className="form-group">
                 <p htmlFor="numberOfBathrooms"> <FaBath /> Bathrooms</p>
                 <select className="form-select" ref={houseBathrooms}>
-                    <option value="0">Any</option>
+                    <option value="1">Any</option>
                     <option value="1">Minimum 1</option>
                     <option value="2">Minimum 2</option>
                     <option value="3">Minimum 3</option>
@@ -97,9 +97,9 @@ function PForm (props)
             <div className="form-group">
                 <p htmlFor="numberOfGardens"> <i className="bi bi-tree"></i> Garden</p>
                 <select className="form-select" ref={houseGarden}>
-                    <option value="0">Any</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
+                    <option value={true}>Any</option>
+                    <option value= {true} >Yes</option>
+                    <option value={false}>No</option>
                 </select>
             </div>
             </div>

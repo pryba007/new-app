@@ -14,30 +14,30 @@ function BEdit()
     {
         let Buyer = {
             id:id,
-            firstName: inputfname.current.value,
+            firsT_NAME: inputfname.current.value,
             surname: inputsname.current.value,
             address: inputaddress.current.value,
             postcode: inputpostcode.current.value,
             phone: inputphone.current.value
         }
        
-        fetch(`http://localhost:3000/buyer/${id}`, {
+        fetch(`http://localhost:3000/EditBuyer/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(Buyer),
-        }).then(response => (navigate(`/View`)))
+        }).then(response => (navigate(`/BView`)))
 
     }
 
     function getBuyer()
     {
 
-        fetch(`http://localhost:3000/buyer/${id}`)
+        fetch(`http://localhost:3000/GetBuyer/${id}`)
         .then((response)=>response.json())
         .then((data)=>{
-            inputfname.current.value = data.firstName;
+            inputfname.current.value = data.firsT_NAME;
             inputsname.current.value = data.surname;
             inputaddress.current.value = data.address;
             inputpostcode.current.value = data.postcode;

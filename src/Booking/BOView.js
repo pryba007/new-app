@@ -18,7 +18,7 @@ function BOView() {
     generatePropertyList();
   }, []);
   function generateBookingList() {
-    fetch("http://localhost:3000/booking")
+    fetch("http://localhost:3000/GetBookings")
       .then((response) => response.json())
       .then((data) => {
         setBookingList(data);
@@ -26,14 +26,14 @@ function BOView() {
   }
 
   function generatePropertyList() {
-    fetch("http://localhost:3000/property")
+    fetch("http://localhost:3000/GetProperties")
       .then((response) => response.json())
       .then((data) => {
         setPropertyList(data);
       });
   }
   function generateBuyerList() {
-    fetch("http://localhost:3000/buyer")
+    fetch("http://localhost:3000/GetBuyers")
       .then((response) => response.json())
       .then((data) => {
         setBuyerList(data);
@@ -42,7 +42,7 @@ function BOView() {
   function getbuyername(id) {
     for (let i = 0; i < buyerList.length; i++) {
       if (buyerList[i].id === id) {
-        return buyerList[i].firstName;
+        return buyerList[i].firsT_NAME;
       }
     }
   }
@@ -62,7 +62,7 @@ function BOView() {
     alert("Are you sure you want to delete this booking?");
     let choice = prompt("Yes or No");
     if (choice === "yes") {
-      fetch(`http://localhost:3000/booking/${props.id}`, {
+      fetch(`http://localhost:3000/GetBooking/${props.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -115,10 +115,10 @@ function BOView() {
                   />
                 </div>
                 <li className="mx-3">
-                  <b>Property Buyer:</b> {getbuyername(booking.buyerId)}
+                  <b>Property Buyer:</b> {getbuyername(booking.buyeR_ID)}
                 </li>
                 <li className="mx-3">
-                  <b>Property Address:</b> {getpropertyname(booking.propertyId)}
+                  <b>Property Address:</b> {getpropertyname(booking.propertY_ID)}
                 </li>
                 <li className="mx-3">
                   <b>Booking Time:</b> {dateConverter(booking.time)}

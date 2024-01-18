@@ -18,11 +18,11 @@ const location = useLocation()
     var bookingdate = new Date(document.getElementById('BookingDate').value)
     
     let booking = {
-        buyerId: Number(document.getElementById('BuyerID').value),
-        propertyId: Number(document.getElementById('PropertyID').value),
+      buyeR_ID: Number(document.getElementById('BuyerID').value),
+      propertY_ID: Number(document.getElementById('PropertyID').value),
       time: bookingdate.toISOString()
     }
-    fetch('http://localhost:3000/booking', {
+    fetch('http://localhost:3000/CreateBooking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const location = useLocation()
         <label>Buyer Name:</label>
         <select id="BuyerID">
           {buyers.map((buyer) => (
-            <option value={buyer.id}>{buyer.firstName}</option>
+            <option value={buyer.id}>{buyer.firsT_NAME}</option>
           ))}
         </select>
         <label>Property ID</label>

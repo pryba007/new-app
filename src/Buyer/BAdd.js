@@ -7,19 +7,19 @@ function BAdd() {
   let navigate = useNavigate();
   let [addBuyer, setBuyer] = useState([]);
   function submitBuyer() {
-    let Buyer = {
-      firstName: document.getElementById("Buyerfname").value,
+    let buyer = {
+      firsT_NAME: document.getElementById("Buyerfname").value,
       surname: document.getElementById("Buyersname").value,
       address: document.getElementById("Buyeraddress").value,
       postcode: document.getElementById("Buyerpostcode").value,
       phone: document.getElementById("Buyerphone").value,
     };
-    fetch("http://localhost:3000/buyer", {
+    fetch("http://localhost:3000/CreateBuyer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(Buyer),
+      body: JSON.stringify(buyer),
     })
       .then((response) => response.json())
       .then((data) => {

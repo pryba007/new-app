@@ -21,7 +21,7 @@ function BView() {
     alert("Are you sure you want to delete this buyer?");
     let choice = prompt("Yes or No");
     if (choice === "yes") {
-    fetch(`http://localhost:3000/buyer/${props.id}`, {
+    fetch(`http://localhost:3000/DeleteBuyer/${props.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function BView() {
                 }}
               >
                 {" "}
-               Add Booking
+               Add Buyer
               </Link>
             </div>
           </div>
@@ -68,10 +68,10 @@ function BView() {
                 <img
                 src={imageList[Math.floor(Math.random()* imageList.length)].url}
                   alt={buyer.firstName}
-                  className="cardImg"
+                  className="cardImgBuyer"
                 />
                </div>
-              <li className="mx-3"><b>First Name:</b> {buyer.firstName}</li>
+              <li className="mx-3"><b>First Name:</b> {buyer.firsT_NAME}</li>
               <li className="mx-3"><b>Last Name:</b> {buyer.surname}</li>
               <li className="mx-3"><b> Address:</b> {buyer.address}</li>
               <li className="mx-3"><b> Post Code:</b>{buyer.postcode}</li>

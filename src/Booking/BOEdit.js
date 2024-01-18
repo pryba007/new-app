@@ -18,11 +18,11 @@ function submitBooking()
 {
   let booking = {
     id:id,
-    buyerId: Number(inputbuyerid.current.value),
-    propertyId: Number(inputpropertyid.current.value),
+    buyeR_ID: Number(inputbuyerid.current.value),
+    propertY_ID: Number(inputpropertyid.current.value),
     time: inputdate.current.value
   }
-  fetch(`http://localhost:3000/booking/${id}`, {
+  fetch(`http://localhost:3000/UpdateBooking/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -32,12 +32,12 @@ function submitBooking()
 }
 function getBooking()
 {
-  fetch(`http://localhost:3000/booking/${id}`)
+  fetch(`http://localhost:3000/GetBooking/${id}`)
   .then((response)=>response.json())
   .then((data)=>{
-    inputbuyerid.current.value = data.buyerId;
-    inputpropertyid.current.value = data.propertyId;
-    inputdate.current.value = data.time;
+    inputbuyerid.current.value = data.buyeR_ID;
+    inputpropertyid.current.value = data.propertY_ID;
+    inputdate.current.value = data.time.substring(0, 10);
   });
 }
 function validation()
@@ -67,8 +67,7 @@ function getbuyername(id)
 {
   for (let i = 0; i < buyers.length; i++) {
     if (buyers[i].id === id) {
-      console.log("The buyer name is " + buyers[i].firstName)
-      return buyers[i].firstName;
+      return buyers[i].firsT_NAME;
     }
   }
 }
@@ -79,7 +78,8 @@ useEffect(()=>getBooking(), []);
         <label>Buyer Name:</label>
         <select id="BuyerID" ref={inputbuyerid} value={getbuyername(inputbuyerid)}>
           {buyers.map((buyer) => (
-            <option value={buyer.id}>{buyer.firstName}</option>
+            
+            <option value={buyer.id}>{buyer.firsT_NAME}</option>
           ))}
         </select>
         <label>Property Name</label>

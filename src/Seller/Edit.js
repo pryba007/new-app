@@ -15,14 +15,14 @@ function Edit()
     {
         let seller = {
             id:id,
-            firstName: inputfname.current.value,
+            firsT_NAME: inputfname.current.value,
             surname: inputsname.current.value,
             address: inputaddress.current.value,
             postcode: inputpostcode.current.value,
             phone: inputphone.current.value
         }
        
-        fetch(`http://localhost:3000/seller/${id}`, {
+        fetch(`http://localhost:3000/UpdateSeller/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -35,10 +35,10 @@ function Edit()
     function getSeller()
     {
 
-        fetch(`http://localhost:3000/seller/${id}`)
+        fetch(`http://localhost:3000/GetSeller/${id}`)
         .then((response)=>response.json())
         .then((data)=>{
-            inputfname.current.value = data.firstName;
+            inputfname.current.value = data.firsT_NAME;
             inputsname.current.value = data.surname;
             inputaddress.current.value = data.address;
             inputpostcode.current.value = data.postcode;
