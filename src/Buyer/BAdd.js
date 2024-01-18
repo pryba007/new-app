@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./BAdd.css";
+import axios from 'axios';
+
+import { ToastContainer, toast } from 'react-toastify';
+import { SERVER_URL } from '../constants.js';
 let { useParams, useNavigate, useLocation } = require("react-router-dom");
 function BAdd() {
   const location = useLocation();
@@ -14,18 +18,24 @@ function BAdd() {
       postcode: document.getElementById("Buyerpostcode").value,
       phone: document.getElementById("Buyerphone").value,
     };
-    fetch("http://localhost:3000/CreateBuyer", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(buyer),
+    const token = sessionStorage.getItem("jwt");
+    axios.post(SERVER_URL + 'CreateBuyer', buyer, { headers: {"Authorization" : `Bearer ${token}`} })
+    .then(res => {
+      toast.success("New buyer added", {
+        // position: toast.POSITION.BOTTOM_LEFT
+      })
+      navigate(`/BView`);
     })
-      .then((response) => response.json())
-      .then((data) => {
-        navigate(`/BView`);
-        setBuyer(data);
-      });
+    .catch(
+      err => {console.error(err)
+      alert("Error when saving", {
+        // position: toast.POSITION.BOTTOM_LEFT
+      })}); 
+      // .then((response) => response.json())
+      // .then((data) => {
+      //   navigate(`/BView`);
+      //   setBuyer(data);
+      // });
   }
 
   function validation() {
