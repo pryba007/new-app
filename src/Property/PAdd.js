@@ -86,15 +86,20 @@ function PAdd() {
       selleR_ID: idchecker()
     }
     const token = sessionStorage.getItem("jwt");
-    axios.post(SERVER_URL + 'CreateProperty', Property, { headers: {"Authorization" : `Bearer ${token}`} })
+    if(token){
+      axios.post(SERVER_URL + 'CreateProperty', Property, { headers: {"Authorization" : `Bearer ${token}`} })
     .then(res => {
       toast.success("New Property added")
       navigate(`/PView`);
     })
     .catch(
       err => {console.error(err)
-      alert("Error when saving")
+      alert("please login")
     }); 
+    }else{
+      alert("please login")
+    }
+    
 
   }
   return (

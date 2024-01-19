@@ -11,6 +11,7 @@ function Add() {
     let sellers = location.state.sellers
     let navigate = useNavigate();
     let [addseller, setseller] = useState([]);
+    const token = sessionStorage.getItem("jwt");
     function submitSeller() {
         let seller = {
             firsT_NAME: document.getElementById('sellerfname').value,
@@ -77,6 +78,10 @@ function Add() {
     }
     return (
         <div className='Sadd'>
+            {/* {token?(
+                <div><div/>
+            ):()} */}
+            <>please login </>
             <h1>Add Seller</h1>
             <input type="text" id="sellerfname" placeholder="First Name " ></input>
             <input type="text" id="sellersname" placeholder="Last Name" ></input>

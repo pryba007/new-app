@@ -29,6 +29,7 @@ function PEdit() {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
+                
             },
             body: JSON.stringify(property),
         }).then(response => (navigate(`/PView`)))
