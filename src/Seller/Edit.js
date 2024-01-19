@@ -1,6 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './Edit.css';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { SERVER_URL } from '../constants.js';
 let {useParams,useNavigate} = require('react-router-dom');
+
 
 function Edit()
 {
@@ -22,13 +26,25 @@ function Edit()
             phone: inputphone.current.value
         }
        
-        fetch(`http://localhost:3000/UpdateSeller/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(seller),
-        }).then(response => (navigate(`/View`)))
+        // fetch(`http://localhost:3000/UpdateSeller/${id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(seller),
+        // }).then(response => (navigate(`/View`)))
+
+        const token = sessionStorage.getItem("jwt");
+        axios.put(SERVER_URL + 'UpdateSeller/' + seller.id, seller, { headers: { "Authorization": `Bearer ${token}` } })
+            .then(res => {
+                toast.success("Changes saved")
+                setTimeout(() => {
+                    navigate(`/View`);
+                }, 500);
+            })
+            .catch(err =>
+                alert("Error when editing: "+err)
+            )
 
     }
 

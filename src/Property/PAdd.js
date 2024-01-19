@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './PAdd.css';
 import axios from 'axios';
 import { SERVER_URL } from '../constants.js';
+import { ToastContainer, toast } from 'react-toastify';
 let { useParams, useNavigate } = require('react-router-dom');
 function PAdd() {
   let navigate = useNavigate();
@@ -84,15 +85,16 @@ function PAdd() {
       status: "FOR SALE",
       selleR_ID: idchecker()
     }
-    console.log(Property);
     const token = sessionStorage.getItem("jwt");
-    console.log(token)
-    axios.post(SERVER_URL + 'api/CreateProperty', Property, { headers: {"Authorization" : `Bearer ${token}`} })
-      .then((response) => response.json())
-      .then((data) => {
-        setProperty(data);
-        navigate('/PView');
-      });
+    axios.post(SERVER_URL + 'CreateProperty', Property, { headers: {"Authorization" : `Bearer ${token}`} })
+    .then(res => {
+      toast.success("New Property added")
+      navigate(`/PView`);
+    })
+    .catch(
+      err => {console.error(err)
+      alert("Error when saving")
+    }); 
 
   }
   return (

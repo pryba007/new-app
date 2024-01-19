@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./BView.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { imageList } from "./Images";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { SERVER_URL } from '../constants.js';
+
 function BView() {
   let [buyerList, setBuyerList] = useState([]);
-
+  const token = sessionStorage.getItem("jwt");
   useEffect(() => {
     generateBuyerList();
   }, []);
@@ -21,10 +25,13 @@ function BView() {
     alert("Are you sure you want to delete this buyer?");
     let choice = prompt("Yes or No");
     if (choice === "yes") {
+      
+      
     fetch(`http://localhost:3000/DeleteBuyer/${props.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Authorization" : `Bearer ${token}`
       },
       body: JSON.stringify({ id: props }),
     }).then((response) => response.json());

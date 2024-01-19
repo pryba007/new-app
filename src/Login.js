@@ -48,13 +48,14 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error.message)
-        toast.warn('Check your username and password 2', {
+        toast.warn('Check your username and password', {
           // position: toast.POSITION.BOTTOM_LEFT
         })
       })
   }
 
   if (isAuthenticated === true) {
+    
     return <Navigate replace to="/" />;
   }
   else {

@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./View.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { imageList } from "./Images";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import { SERVER_URL } from '../constants.js';
+
 function View() {
   let [sellerList, setSellerList] = useState([]);
   useEffect(() => {
@@ -34,6 +38,8 @@ function View() {
       alert("Invalid input");
     }
   }
+
+  const token = sessionStorage.getItem("jwt");
 
   return (
     <div className=" container sViews">
