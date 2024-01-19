@@ -5,14 +5,26 @@ import { imageList } from "./Images";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { SERVER_URL } from '../constants.js';
+let { useParams, useNavigate } = require('react-router-dom');
 
 function BView() {
+  let navigate = useNavigate();
   let [buyerList, setBuyerList] = useState([]);
+  let [propertyList, setPropertyList]= useState([]);
   const token = sessionStorage.getItem("jwt");
   useEffect(() => {
     generateBuyerList();
   }, []);
-
+  useEffect(() => {
+    generatePropertyList();
+  }, []);
+  function generatePropertyList() {
+    fetch("http://localhost:3000/GetProperties")
+      .then((response) => response.json())
+      .then((data) => {
+        setPropertyList(data);
+      });
+  }
   function generateBuyerList() {
     fetch("http://localhost:3000/GetBuyers")
       .then((response) => response.json())
@@ -20,10 +32,34 @@ function BView() {
         setBuyerList(data);
       });
   }
-
+  function propertycheck(props)
+  {
+    let found = false;
+    console.log(propertyList)
+    for (let i = 0; i < propertyList.length; i++) {
+      console.log(propertyList[i].buyeR_ID)
+        console.log(props)
+      if(propertyList[i].buyeR_ID == props.id)
+      {
+        console.log("reached again")
+        found = true
+      }
+    }
+    if (found === true)
+    {
+      alert("You Cant Delete this buyer because they currently bought to a property, delete the property or change its status then try again")
+      
+    }
+    else
+    {
+      DeleteFromList(props)
+    }
+  }
   function DeleteFromList(props) {
     alert("Are you sure you want to delete this buyer?");
     let choice = prompt("Yes or No");
+
+    
     if (choice === "yes") {
       
       
@@ -31,11 +67,11 @@ function BView() {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${token}`
-      },
-      body: JSON.stringify({ id: props }),
-    }).then((response) => response.json());
-    generateBuyerList();
+        "Authorization" : `Bearer ${token}`,
+      }})
+      .then((res) => res.text()) // or res.json()
+      .then((res) => console.log(res));
+      generateBuyerList();
   }
   else if (choice === "no") {
     alert("Buyer not deleted")
@@ -43,6 +79,7 @@ function BView() {
   else {
     alert("Invalid input")
   }
+  
 }
 
   return (
@@ -87,7 +124,7 @@ function BView() {
                 <button
                   className="btn btn-danger mx-2"
                   type="button"
-                  onClick={() => DeleteFromList(buyer)}
+                  onClick={() => propertycheck(buyer)}
                 >Delete</button>
                    <Link
                     className="btn btn-warning text-white"

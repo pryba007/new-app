@@ -28,10 +28,12 @@ function View() {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: props }),
-      }).then((response) => response.json());
-      generateSellerList();
+          "Authorization" : `Bearer ${token}`,
+        }})
+        .then((res) => res.text()) // or res.json()
+        .then((res) => console.log(res));
+        generateSellerList();
+      
     } else if (choice === "no") {
       alert("Seller not deleted");
     } else {
